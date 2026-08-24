@@ -14,5 +14,5 @@
 
 ## 我的仓库
 
-- [kernelci-riscv-li3a](https://github.com/Acidmoon/kernelci-riscv-li3a) — KernelCI RISC-V 真机验证（Lichee Pi 3A）
-- [DIzzy-DSH](https://github.com/Acidmoon/DIzzy-DSH) — 我的 DSH 插件
+::github{repo="Acidmoon/kernelci-riscv-li3a"}
+::github{repo="Acidmoon/DIzzy-DSH"}
