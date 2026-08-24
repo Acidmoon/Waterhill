@@ -3,6 +3,7 @@ title: "Happy-LLM-NLP基础概念"
 published: 2026-06-17
 description: "前言 本系列基于Datawhale的Happy LLM项目。本项目适合大学生进行学习，学习前建议具备一定的编程经验 Python ，最好具备一定的深度学习的相关知识。并了解NLP相关概念和术语。但是其实在AI时代，AI是"
 tags: ["能工智人"]
+category: "笔记"
 draft: false
 language: "zh_CN"
 ---

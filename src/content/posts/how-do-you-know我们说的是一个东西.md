@@ -2,7 +2,7 @@
 title: "How Do You Know我们说的是一个东西？"
 published: 2026-05-27
 description: "How Do You Know我们说的是一个东西？ 搜集日期 ：2026 05 27 审查状态 ：已完成三线审查（事实 / 来源 / 逻辑） 字数 ：约 6,500 字 阅读时间 ：约 15 分钟 引言 1960 年，哲"
-tags: ["天然愚蠢杂谈"]
+category: "天然愚蠢杂谈"
 draft: false
 language: "zh_CN"
 ---

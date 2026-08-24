@@ -2,7 +2,7 @@
 title: "DeepSeek-R1技术论文学习"
 published: 2026-06-14
 description: "起因 今天苦芽科技的吴伟学长回到学校进行分享。在我向他做自我介绍时，提到我对于开源的大模型如DeepSeek十分感兴趣。他告诉我可以先直接用AI辅助来学习DeepSeek的论文，他说的是V3的论文，但是Github上V3"
-tags: ["天然愚蠢杂谈", "能工智人"]
+tags: ["能工智人"]
 draft: true
 language: "zh_CN"
 ---

@@ -2,7 +2,8 @@
 title: "对 Minimax M2.7、DeepSeek V4 以及 GPT 5.5 在 Hermes Agent 中表现的评价"
 published: 2026-05-17
 description: "大体上，我就是想聊聊最近把这几款模型接进 Hermes Agent 时的一些真实感受。 MiniMax M2.7 去年 MiniMax M2.5 刚出的时候非常厉害。那会儿 Agent 还没现在这么火，但 MiniMax"
-tags: ["见字如晤", "天然愚蠢杂谈"]
+tags: ["见字如晤"]
+category: "天然愚蠢杂谈"
 draft: false
 language: "zh_CN"
 ---
