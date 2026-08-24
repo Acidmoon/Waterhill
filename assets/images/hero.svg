@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="520" viewBox="0 0 1800 520">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dff2f7"/><stop offset="1" stop-color="#b9e2ec"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8ecbd9"/><stop offset="1" stop-color="#3f8ba3"/>
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <rect width="1800" height="520" fill="url(#sky)"/>
+  <circle cx="1450" cy="140" r="95" fill="#f6c66b" opacity="0.25" filter="url(#blur)"/>
+  <circle cx="1450" cy="140" r="52" fill="#f6c66b"/>
+  <path d="M0 300 C 260 210 480 300 760 250 C 1040 205 1300 300 1560 252 C 1680 230 1760 250 1800 240 L 1800 400 L 0 400 Z" fill="#a9d6e2" opacity="0.75"/>
+  <path d="M0 380 C 240 300 520 380 820 335 C 1100 292 1330 380 1560 330 C 1700 302 1770 330 1800 320 L 1800 460 L 0 460 Z" fill="#6fb9cb" opacity="0.9"/>
+  <rect y="400" width="1800" height="120" fill="url(#water)"/>
+  <path d="M0 470 C 150 462 300 478 480 470 C 660 462 840 478 1020 470 C 1200 462 1380 478 1560 470 C 1680 465 1760 472 1800 468" stroke="#e2f3f8" stroke-width="5" fill="none" opacity="0.8"/>
+  <path d="M60 500 C 220 492 420 508 600 500 C 780 492 980 508 1180 500 C 1380 492 1580 508 1780 500" stroke="#e2f3f8" stroke-width="4" fill="none" opacity="0.6"/>
+  <path d="M0 440 C 200 380 400 450 620 415 C 900 372 1150 450 1380 405 C 1560 372 1700 420 1800 392 L 1800 520 L 0 520 Z" fill="#3a8099" opacity="0.85"/>
+</svg>

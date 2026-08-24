@@ -5,7 +5,7 @@ email:
 description: >-
   水浇岭——技术笔记、生活随笔,以及忽然冒出来的想法。
   (口述文章为主,AI 润色后发布)
-minimal_mistakes_skin: default
+minimal_mistakes_skin: aqua
 search: true
 
 url: "https://blog.waterhill.cyou"
@@ -16,7 +16,7 @@ repository: "Acidmoon/Waterhill"
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
 permalink: /:title/
-paginate: 5
+paginate: 10
 paginate_path: /page:num/
 timezone: Asia/Shanghai
 locale: zh-CN
@@ -34,7 +34,7 @@ plugins:
 
 author:
   name   : "Acidmoon"
-  avatar : "/assets/images/diary-cover.webp"
+  avatar : "/assets/images/avatar.svg"
   bio    : "口述文章为主 · 技术笔记与生活随笔"
   links:
     - label: "GitHub"
