@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "15 0 * * *" # 每天北京时间 08:15 自动刷新壁纸并部署
 
 permissions:
   contents: read
@@ -32,10 +34,19 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Fetch Bing wallpaper (UHD 3840x2160)
+        run: |
+          META=$(curl -sf "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN" || echo "")
+          URL=$(echo "$META" | python3 -c "import sys,json;d=json.load(sys.stdin);i=d['images'][0];print('https://www.bing.com'+i['urlbase']+'_UHD.jpg')" 2>/dev/null || true)
+          curl -sfL "$URL" -o src/assets/images/bing-daily.jpg || {
+            PLAIN=https://www.bing.com$(echo "$META" | python3 -c "import sys,json;print(json.load(sys.stdin)['images'][0]['url'])" 2>/dev/null || true)
+            curl -sfL "$PLAIN" -o src/assets/images/bing-daily.jpg || true
+          }
+          python3 -c "import pathlib;h=pathlib.Path('src/assets/images/bing-daily.jpg').read_bytes();assert h[:2]==b'\xff\xd8' and len(h)>500000,'bad image'" && file src/assets/images/bing-daily.jpg
       - name: Build
         run: pnpm run build
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
