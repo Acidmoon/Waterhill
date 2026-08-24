@@ -8,4 +8,8 @@
 
 ## 联系方式
 
+- GitHub: [@Acidmoon](https://github.com/Acidmoon)
+- 邮箱: [1774035833@qq.com](mailto:1774035833@qq.com)
+- 微信: Dzy18837923576（联系请备注来意）
+
 ::github{repo="Acidmoon/Waterhill"}
