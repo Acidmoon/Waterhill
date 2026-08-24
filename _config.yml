@@ -1,17 +1,16 @@
-# 夜航船 - Minimal Mistakes 站点配置
-# 部署到 GitHub Pages 后,把 url 改成你的真实地址(如 https://blog.example.com)
+# 水浇岭 - Minimal Mistakes 站点配置
 
-title: 夜航船
+title: 水浇岭
 email:
 description: >-
-  我在夜航船里写下的随想——技术笔记、生活随笔,以及所有忽然冒出来的想法。
+  水浇岭——技术笔记、生活随笔,以及忽然冒出来的想法。
   (口述文章为主,AI 润色后发布)
 minimal_mistakes_skin: default
 search: true
 
-url: "https://blog.example.com"
+url: "https://blog.waterhill.cyou"
 baseurl: ""
-repository: "Acidmoon/night-boat"
+repository: "Acidmoon/Waterhill"
 
 # 构建设置
 markdown: kramdown
