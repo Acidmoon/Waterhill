@@ -20,13 +20,35 @@ async function getRawSortedPosts() {
 export async function getSortedPosts() {
 	const sorted = await getRawSortedPosts();
 
-	for (let i = 1; i < sorted.length; i++) {
-		sorted[i].data.nextSlug = sorted[i - 1].slug;
-		sorted[i].data.nextTitle = sorted[i - 1].data.title;
+	for (const post of sorted) {
+		post.data.prevSlug = "";
+		post.data.prevTitle = "";
+		post.data.nextSlug = "";
+		post.data.nextTitle = "";
 	}
-	for (let i = 0; i < sorted.length - 1; i++) {
-		sorted[i].data.prevSlug = sorted[i + 1].slug;
-		sorted[i].data.prevTitle = sorted[i + 1].data.title;
+
+	// Prev/next navigation only links posts within the same category
+	const byCategory = new Map<string, CollectionEntry<"posts">[]>();
+	for (const post of sorted) {
+		const key =
+			typeof post.data.category === "string" ? post.data.category.trim() : "";
+		const categoryPosts = byCategory.get(key);
+		if (categoryPosts) {
+			categoryPosts.push(post);
+		} else {
+			byCategory.set(key, [post]);
+		}
+	}
+
+	for (const categoryPosts of byCategory.values()) {
+		for (let i = 1; i < categoryPosts.length; i++) {
+			categoryPosts[i].data.nextSlug = categoryPosts[i - 1].slug;
+			categoryPosts[i].data.nextTitle = categoryPosts[i - 1].data.title;
+		}
+		for (let i = 0; i < categoryPosts.length - 1; i++) {
+			categoryPosts[i].data.prevSlug = categoryPosts[i + 1].slug;
+			categoryPosts[i].data.prevTitle = categoryPosts[i + 1].data.title;
+		}
 	}
 
 	return sorted;
