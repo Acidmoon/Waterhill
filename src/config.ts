@@ -49,7 +49,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar.png",
 	name: "Acidmoon",
-	bio: "口述文章为主 · 技术笔记与生活随笔",
+	bio: "HFUT ICS大三在读",
 	links: [
 		{
 			name: "GitHub",
