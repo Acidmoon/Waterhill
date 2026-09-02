@@ -37,7 +37,7 @@ language: "zh_CN"
 
 那么如何选择我们的座驾呢？市面上已有的各种Harness多如牛毛（夸张手法），比如我们可能听说过的`Codex`、`Claude Code`、`Antigravity`这些海外公司推出的，以及如`WorkBuddy`、`Qoder`、`Zcode`等国内公司推出的产品。
 
-在本文写作的时间点，我会选择让新手使用`Pi`这个极简的Harness，虽然它只有最基本的四个工具，没有像Claude Code一样完整的、开箱即用的配置。这个原因我会单独写一篇文章进行说明。
+在本文写作的时间点，我会选择让新手使用`Pi`这个极简的Harness，虽然它只有最基本的四个工具，没有像Claude Code一样完整的、开箱即用的配置。为什么不推荐使用claude code这个原因我会单独写一篇文章进行说明。
 
 那么选型结束，我们要开始进行接入了
 
@@ -153,7 +153,7 @@ powershell -c "irm https://pi.dev/install.ps1 | iex"
 
 ![Pi的自我介绍回复.png](/images/pi-init-13.png)
 
-进行到这里我们就算是完全配置完毕了！我们已经将一个前沿的大语言模型请进了我们的电脑中，通过Pi Coding Agent，DeepSeek的这个视觉模型可以访问我们的电脑上的文件。**此时我们就不再只是局限于和模型在网页或者应用内聊天对话了！**
+进行到这里我们就算是完全配置完毕了！我们已经将一个前沿的大语言模型请进了我们的电脑中，通过Pi Coding Agent，DeepSeek的这个视觉 模型可以访问我们的电脑上的文件。**此时我们就不再只是局限于和模型在网页或者应用内聊天对话了！**
 
 > **延伸阅读**：[DeepSeek 开放平台](https://platform.deepseek.com)、[Pi 官网](https://pi.dev/)
 
