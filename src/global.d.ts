@@ -2,9 +2,10 @@ import type { AstroIntegration } from "@swup/astro";
 
 declare global {
 	interface Window {
-		// type from '@swup/astro' is incorrect
-		swup: AstroIntegration;
-		pagefind: {
+	// type from '@swup/astro' is incorrect
+	swup: AstroIntegration;
+	__navPanelOutsideClickListener?: boolean;
+	pagefind: {
 			search: (query: string) => Promise<{
 				results: Array<{
 					data: () => Promise<SearchResult>;

@@ -1,32 +1,94 @@
 ---
 import { Icon } from "astro-icon/components";
-import { type NavBarLink } from "../../types/config";
-import { url } from "../../utils/url-utils";
+import I18nKey from "../../i18n/i18nKey";
+import { i18n } from "../../i18n/translation";
+import { LinkPreset, type NavBarLink } from "../../types/config";
+import { LinkPresets } from "../../constants/link-presets";
+import { getCategoryList, getTagList } from "../../utils/content-utils";
+import { getTagUrl, url } from "../../utils/url-utils";
+import ButtonLink from "../control/ButtonLink.astro";
+import ButtonTag from "../control/ButtonTag.astro";
 
 interface Props {
 	links: NavBarLink[];
 }
 
 const links = Astro.props.links;
+const categories = await getCategoryList();
+const tags = await getTagList();
+const archiveUrl = LinkPresets[LinkPreset.Archive].url;
 ---
-<div id="nav-menu-panel" class:list={["float-panel float-panel-closed absolute transition-all fixed right-4 px-2 py-2"]}>
+<div id="nav-menu-panel" class:list={["nav-float-panel float-panel float-panel-closed absolute transition-all fixed right-4 px-2 py-2"]}>
     {links.map((link) => (
-        <a href={link.external ? link.url : url(link.url)} class="group flex justify-between items-center py-2 pl-3 pr-1 rounded-lg gap-8
-            hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)] transition
-        "
-           target={link.external ? "_blank" : null}
-        >
-            <div class="transition text-black/75 dark:text-white/75 font-bold group-hover:text-[var(--primary)] group-active:text-[var(--primary)]">
-                {link.name}
-            </div>
-            {!link.external && <Icon name="material-symbols:chevron-right-rounded"
-                  class="transition text-[1.25rem] text-[var(--primary)]"
+        <>
+            {/* 分类/标签子菜单与桌面端一致，固定插在归档链接之前 */}
+            {link.url === archiveUrl && (
+                <div>
+                    <button class="group w-full flex justify-between items-center py-2 pl-3 pr-1 rounded-lg gap-8
+                        hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)] transition"
+                        data-submenu-toggle="nav-submenu-categories" aria-expanded="false"
+                    >
+                        <div class="transition text-black/75 dark:text-white/75 font-bold group-hover:text-[var(--primary)] group-active:text-[var(--primary)]">
+                            {i18n(I18nKey.categories)}
+                        </div>
+                        <Icon name="material-symbols:chevron-right-rounded"
+                              class="transition text-[1.25rem] text-[var(--primary)]"
+                        >
+                        </Icon>
+                    </button>
+                    <div id="nav-submenu-categories" class="hidden pb-2">
+                        {categories.map((c) => (
+                            <ButtonLink
+                                url={c.url}
+                                badge={String(c.count)}
+                                label={`View all posts in the ${c.name.trim()} category`}
+                            >
+                                {c.name.trim()}
+                            </ButtonLink>
+                        ))}
+                    </div>
+                </div>
+            )}
+            {link.url === archiveUrl && (
+                <div>
+                    <button class="group w-full flex justify-between items-center py-2 pl-3 pr-1 rounded-lg gap-8
+                        hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)] transition"
+                        data-submenu-toggle="nav-submenu-tags" aria-expanded="false"
+                    >
+                        <div class="transition text-black/75 dark:text-white/75 font-bold group-hover:text-[var(--primary)] group-active:text-[var(--primary)]">
+                            {i18n(I18nKey.tags)}
+                        </div>
+                        <Icon name="material-symbols:chevron-right-rounded"
+                              class="transition text-[1.25rem] text-[var(--primary)]"
+                        >
+                        </Icon>
+                    </button>
+                    <div id="nav-submenu-tags" class="hidden flex gap-2 flex-wrap px-2 pb-2">
+                        {tags.map((t) => (
+                            <ButtonTag href={getTagUrl(t.name)} label={`View all posts with the ${t.name.trim()} tag`}>
+                                {t.name.trim()}
+                            </ButtonTag>
+                        ))}
+                    </div>
+                </div>
+            )}
+            <a href={link.external ? link.url : url(link.url)} class="group flex justify-between items-center py-2 pl-3 pr-1 rounded-lg gap-8
+                hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)] transition
+            "
+               target={link.external ? "_blank" : null}
             >
-            </Icon>}
-            {link.external && <Icon name="fa6-solid:arrow-up-right-from-square"
-                  class="transition text-[0.75rem] text-black/25 dark:text-white/25 -translate-x-1"
-            >
-            </Icon>}
-        </a>
+                <div class="transition text-black/75 dark:text-white/75 font-bold group-hover:text-[var(--primary)] group-active:text-[var(--primary)]">
+                    {link.name}
+                </div>
+                {!link.external && <Icon name="material-symbols:chevron-right-rounded"
+                      class="transition text-[1.25rem] text-[var(--primary)]"
+                >
+                </Icon>}
+                {link.external && <Icon name="fa6-solid:arrow-up-right-from-square"
+                      class="transition text-[0.75rem] text-black/25 dark:text-white/25 -translate-x-1"
+                >
+                </Icon>}
+            </a>
+        </>
     ))}
 </div>

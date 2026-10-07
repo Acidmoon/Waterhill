@@ -11,6 +11,7 @@ export const ko: Translation = {
 	[Key.categories]: "카테고리",
 	[Key.recentPosts]: "최근 게시물",
 
+	[Key.categoryPosts]: "이 카테고리의 다른 글",
 	[Key.comments]: "댓글",
 
 	[Key.untitled]: "제목 없음",
